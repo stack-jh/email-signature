@@ -69,9 +69,15 @@
     if (c.siteText) rows += contactRow(c.homeIcon, ib, "home", "H",
       '<a href="' + esc(c.siteUrl || ("https://" + c.siteText)) + '" target="_blank" rel="noopener" style="text-decoration:none;font-size:9pt;line-height:10pt;color:' + C_TEXT + ';">'
       + '<span style="text-decoration:none;font-size:9pt;line-height:10pt;color:' + C_TEXT + ';font-family:굴림체;">' + esc(c.siteText) + '</span></a>');
-    var addrText = (v.addrLang === "en") ? c.addrEn : c.addrKo;
-    if (addrText) rows += contactRow(c.iconAddr, ib, "addr", "A",
-      plain((c.company ? c.company + ", " : "") + addrText));
+    var addrInner = "";
+    if (v.addrLang === "en")       addrInner = c.addrEn ? plain(c.addrEn) : "";
+    else if (v.addrLang === "both") {
+      if (c.addrKo) addrInner += plain(c.addrKo);
+      if (c.addrKo && c.addrEn) addrInner += '<br />';
+      if (c.addrEn) addrInner += plain(c.addrEn);
+    }
+    else                            addrInner = c.addrKo ? plain(c.addrKo) : "";
+    if (addrInner) rows += contactRow(c.iconAddr, ib, "addr", "A", addrInner);
 
     /* ── SNS ── */
     var sns = "";
@@ -140,7 +146,6 @@
 
   /* 기본값 (config.json 로드 실패 시 폴백) */
   var DEFAULT_CONFIG = {
-    company: "UNION biometrics Co., Ltd.",
     siteText: "unionbiometrics.com",
     siteUrl: "https://unionbiometrics.com",
     addrKo: "05836 서울특별시 송파구 법원로 127, 문정대명벨리온 12층",
