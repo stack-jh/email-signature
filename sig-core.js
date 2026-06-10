@@ -112,7 +112,7 @@
 + '  </td>\n'
 + '</tr>\n'
 + '<tr>\n'
-+ '  <td style="margin:0px;padding:22px 0px 0px;width:130px;height:105px;vertical-align:top;">\n'
++ '  <td style="margin:0px;padding:0px;width:130px;height:105px;vertical-align:middle;">\n'
 +      logoCell + '\n'
 + '  </td>\n'
 + '  <td style="margin:0px;padding:25px 0px 0px;width:469px;height:102px;vertical-align:top;">\n'
