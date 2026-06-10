@@ -103,8 +103,12 @@
           <input id="c_company" data-key="company" />
         </div>
         <div class="field">
-          <label for="c_addr">주소 (A)</label>
-          <input id="c_addr" data-key="addr" />
+          <label for="c_addrKo">주소 (A) — 국문</label>
+          <input id="c_addrKo" data-key="addrKo" />
+        </div>
+        <div class="field">
+          <label for="c_addrEn">주소 (A) — 영문</label>
+          <input id="c_addrEn" data-key="addrEn" />
         </div>
         <div class="field">
           <label for="c_siteText">웹사이트 표시 텍스트</label>
@@ -207,7 +211,7 @@
 <script>
 (function(){
   "use strict";
-  var SAMPLE = { name:"홍길동", nameEn:"Gildong Hong", dept:"전략기획본부 / 마케팅팀", title:"팀장", tel:"82 2-6488-3235", mobile:"82 10-0000-0000", email:"hong@unionbiometrics.com", banner:"ko" };
+  var SAMPLE = { name:"홍길동", nameEn:"Gildong Hong", dept:"전략기획본부 / 마케팅팀", title:"팀장", tel:"82 2-6488-3235", mobile:"82 10-0000-0000", email:"hong@unionbiometrics.com", banner:"ko", addrLang:"ko" };
   var preview = document.getElementById("preview");
   var jsonOut = document.getElementById("jsonOut");
 

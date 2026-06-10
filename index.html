@@ -127,6 +127,13 @@
         <input id="f_email" data-key="email" placeholder="id@unionbiometrics.com" autocomplete="email" />
       </div>
       <div class="field">
+        <label>주소 (A)</label>
+        <div class="radio-row">
+          <label class="radio"><input type="radio" name="addrSel" value="ko" checked /> 국문</label>
+          <label class="radio"><input type="radio" name="addrSel" value="en" /> 영문</label>
+        </div>
+      </div>
+      <div class="field">
         <label>하단 배너</label>
         <div class="radio-row">
           <label class="radio"><input type="radio" name="bannerSel" value="ko" checked /> 국문</label>
@@ -183,6 +190,8 @@
     });
     var b = document.querySelector('input[name="bannerSel"]:checked');
     v.banner = b ? b.value : "ko";
+    var a = document.querySelector('input[name="addrSel"]:checked');
+    v.addrLang = a ? a.value : "ko";
     return v;
   }
   function render(){

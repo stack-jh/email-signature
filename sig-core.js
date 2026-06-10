@@ -69,8 +69,9 @@
     if (c.siteText) rows += contactRow(c.homeIcon, ib, "home", "H",
       '<a href="' + esc(c.siteUrl || ("https://" + c.siteText)) + '" target="_blank" rel="noopener" style="text-decoration:none;font-size:9pt;line-height:10pt;color:' + C_TEXT + ';">'
       + '<span style="text-decoration:none;font-size:9pt;line-height:10pt;color:' + C_TEXT + ';font-family:굴림체;">' + esc(c.siteText) + '</span></a>');
-    if (c.addr)   rows += contactRow(c.iconAddr, ib, "addr", "A",
-      plain((c.company ? c.company + ", " : "") + c.addr));
+    var addrText = (v.addrLang === "en") ? c.addrEn : c.addrKo;
+    if (addrText) rows += contactRow(c.iconAddr, ib, "addr", "A",
+      plain((c.company ? c.company + ", " : "") + addrText));
 
     /* ── SNS ── */
     var sns = "";
@@ -142,7 +143,8 @@
     company: "UNION biometrics Co., Ltd.",
     siteText: "unionbiometrics.com",
     siteUrl: "https://unionbiometrics.com",
-    addr: "12F, Daemyung Valeon bldg, 127, Beobwon-ro, 05836, Songpa-Gu, Seoul, Republic of Korea",
+    addrKo: "05836 서울특별시 송파구 법원로 127, 문정대명벨리온 12층",
+    addrEn: "12F, Daemyung Valeon bldg, 127, Beobwon-ro, 05836, Songpa-Gu, Seoul, Republic of Korea",
     logo: "https://unionbiometrics.com/img/ci/UNION%20biometrics%20CI.png",
     logoCaption: "",
     bannerKo: "https://unionbiometrics.com/wp-content/uploads/logo/email_kor.gif",
